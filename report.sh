@@ -10,7 +10,7 @@ cat <<- _EOF_
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>*|MC:SUBJECT|*</title>
+        <title>$TITLE</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -40,7 +40,7 @@ cat <<- _EOF_
 			* @theme page
 			*/
 			body, #bodyTable{
-				/*@editable*/ background-color:#DEE0E2;
+				/*@editable*/ background-color:#F5F5F5;
 			}
 
 			/**
@@ -77,11 +77,11 @@ cat <<- _EOF_
 				/*@editable*/ font-weight:bold;
 				/*@editable*/ line-height:100%;
 				/*@editable*/ letter-spacing:normal;
-				margin-top:0;
+				margin-top:10px;
 				margin-right:0;
 				margin-bottom:10px;
 				margin-left:0;
-				/*@editable*/ text-align:left;
+				/*@editable*/ text-align:center;
 			}
 
 			/**
@@ -101,9 +101,9 @@ cat <<- _EOF_
 				/*@editable*/ letter-spacing:normal;
 				margin-top:0;
 				margin-right:0;
-				margin-bottom:10px;
+				margin-bottom:30px;
 				margin-left:0;
-				/*@editable*/ text-align:left;
+				/*@editable*/ text-align:center;
 			}
 
 			/**
@@ -209,9 +209,9 @@ cat <<- _EOF_
 				/*@editable*/ font-size:20px;
 				/*@editable*/ font-weight:bold;
 				/*@editable*/ line-height:100%;
-				/*@editable*/ padding-top:10px;
+				/*@editable*/ padding-top:20px;
 				/*@editable*/ padding-right:15px;
-				/*@editable*/ padding-bottom:10px;
+				/*@editable*/ padding-bottom:20px;
 				/*@editable*/ padding-left:15px;
 				/*@editable*/ text-align:left;
 				/*@editable*/ vertical-align:middle;
@@ -230,7 +230,7 @@ cat <<- _EOF_
 
 			#headerImage{
 				height:auto;
-				max-width:600px;
+				max-width:300px;
 			}
 
 			/* ========== Body Styles ========== */
@@ -241,7 +241,7 @@ cat <<- _EOF_
 			* @tip Set the background color and borders for your email's body area.
 			*/
 			#templateBody{
-				/*@editable*/ background-color:#F4F4F4;
+				/*@editable*/ background-color:#FFF;
 				/*@editable*/ border-top:1px solid #FFFFFF;
 				/*@editable*/ border-bottom:1px solid #CCCCCC;
 			}
@@ -486,7 +486,7 @@ cat <<- _EOF_
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                                <a href="*|TWITTER:PROFILEURL|*">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="*|FACEBOOK:PROFILEURL|*">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="*|FORWARD|*">Forward to Friend</a>&nbsp;
+																							<p>$TIME_STAMP</p>
                                             </td>
                                         </tr>
                                     </table>
