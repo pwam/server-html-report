@@ -5,6 +5,16 @@ TITLE="$HOSTNAME Daily Report"
 RIGHT_NOW=$(date +"%x %r %Z")
 TIME_STAMP="Generated on $RIGHT_NOW by $USER"
 
+# functions
+function host_info(){
+	local dnsips=$(sed -e '/^$/d' /etc/resolv.conf | awk '{if (tolower($1)=="nameserver") print $2}')
+	echo "Hostname : $(hostname -s)"
+	echo "DNS domain : $(hostname -d)"
+	echo "Fully qualified domain name : $(hostname -f)"
+	echo "Network address (IP) :  $(hostname -i)"
+	echo "DNS name servers (DNS IP) : ${dnsips}"
+}
+
 cat <<- _EOF_
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -471,7 +481,7 @@ cat <<- _EOF_
                                                 Customize your template by clicking on the style editor tabs above. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
                                                 <br />
                                                 <br />
-                                                <h2>Styling Your Content</h2>
+                                                <h2>$(host_info)</h2>
                                                 <h4>Make your email easy to read</h4>
                                                 After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a href="http://www.mailchimp.com/kb/article/im-using-the-style-designer-and-i-cant-get-my-formatting-to-change" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style.
                                             </td>
