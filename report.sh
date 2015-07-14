@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# system_page - A script to produce an system information HTML file
-
-##### Constants
-
-TITLE="System Information for $HOSTNAME"
+# constants
+TITLE="$HOSTNAME Daily Report"
 RIGHT_NOW=$(date +"%x %r %Z")
-TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+TIME_STAMP="Generated on $RIGHT_NOW by $USER"
 
 ##### Functions
 
@@ -49,7 +46,8 @@ cat <<- _EOF_
   </head>
 
   <body>
-      <h1>$TITLE</h1>
+      <h1>$HOSTNAME</h1>
+      <h3>Daily Report</h3>
       <p>$TIME_STAMP</p>
       $(system_info)
       $(show_uptime)
